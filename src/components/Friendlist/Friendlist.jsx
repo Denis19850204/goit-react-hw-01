@@ -3,7 +3,6 @@ import css from './Friendlist.module.css';
 
 export default function FriendsList(props) {
   const { friends } = props;
-  
 
   return (
     <ul className={css.list}>
@@ -31,5 +30,12 @@ export default function FriendsList(props) {
 }
 
 FriendsList.propTypes = {
-  friends: PropTypes.array,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string,
+      name: PropTypes.string,
+      isOnline: PropTypes.bool,
+      id: PropTypes.number,
+    })
+  ),
 };

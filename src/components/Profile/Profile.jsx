@@ -3,7 +3,7 @@ import css from './Profile.module.css';
 
 export default function Profile(props) {
   const { username, tag, location, avatar, stats } = props;
- 
+
   return (
     <div className={css.profile}>
       <div className={css.description}>
@@ -36,6 +36,9 @@ Profile.propTypes = {
   tag: PropTypes.string,
   location: PropTypes.string,
   avatar: PropTypes.string,
-  stats: PropTypes.object,
-
-}
+  stats: PropTypes.shape({
+    followers: PropTypes.number,
+    views: PropTypes.number,
+    likes: PropTypes.number,
+  }),
+};

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+// import { string } from 'prop-types';
 import css from './Statistics.module.css';
 
 export default function Statistics(props) {
@@ -6,7 +7,7 @@ export default function Statistics(props) {
 
   return (
     <section className={css.statistics}>
-      <h2 className={css.title}>{title}</h2>
+      {title.length > 0 && <h2 className={css.title}>{title}</h2>}
 
       <ul className={css.list}>
         {stats.map(stat => (

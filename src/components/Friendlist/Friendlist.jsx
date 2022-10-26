@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
 import css from './Friendlist.module.css';
+import Friendsitem from './Friendsitem';
 
 export default function FriendsList(props) {
   const { friends } = props;
 
   return (
     <ul className={css.list}>
-      {friends.map(friend => (
+      {friends.map(({avatar, name, isOnline, id}) => {
+        return <Friendsitem key={id} avatar={avatar} name={name} isOnline={isOnline} />
+      })}
+      {/* {friends.map(friend => (
         <li className={css.item} key={friend.id}>
           <span
-            className={
-              friend.isOnline ? css.status__online : css.status__offline
-            }
-          >
-            {friend.status}
+            className={friend.isOnline ? css.status__online : css.status__offline}>{friend.status}
           </span>
 
           <img
@@ -24,7 +24,7 @@ export default function FriendsList(props) {
           />
           <p className={css.name}>{friend.name}</p>
         </li>
-      ))}
+      ))} */}
     </ul>
   );
 }
